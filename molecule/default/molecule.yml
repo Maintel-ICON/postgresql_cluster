@@ -156,7 +156,8 @@ scenario:
     - destroy
 
 verifier:
-  name: ansible
-  enabled: false  # TODO
-
-...
+  name: testinfra
+  options:
+    v: yes
+  lint:
+    name: flake8
