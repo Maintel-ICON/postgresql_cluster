@@ -46,14 +46,14 @@ jobs:
       - name: Git clone repo postgresql_cluster
         uses: actions/checkout@v2
 
-      - name: Lint playbook with Ansible v2.9
+      - name: Lint playbook with Ansible v2.10
         uses: ansible/ansible-lint-action@master
         with:
           targets: |
             deploy_pgcluster.yml
             add_pgnode.yml
             add_balancer.yml
-          override-deps: ansible~=2.9.0
+          override-deps: ansible~=2.10.0
           args: "-x 106,208,403"
   yaml_build:
     runs-on: ubuntu-latest
