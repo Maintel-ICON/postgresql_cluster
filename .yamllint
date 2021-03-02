@@ -1,0 +1,11 @@
+---
+# The is the yamllint configuration file.
+# It extends the default conf by adjusting some options
+
+extends: default
+
+rules:
+  truthy:
+    allowed-values: ['yes', 'no', 'true', 'false']
+  line-length:
+    max: 160
