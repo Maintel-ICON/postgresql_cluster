@@ -5,7 +5,7 @@ name: Ansible-lint
 
 on:
   push:
-    branches:
+    branches-ignore:
       - master
   pull_request:
     branches:
