@@ -158,6 +158,6 @@ scenario:
 verifier:
   name: testinfra
   options:
-    v: yes
+    v: true
   lint:
     name: flake8
