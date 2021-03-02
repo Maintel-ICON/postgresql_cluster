@@ -29,7 +29,6 @@ jobs:
           override-deps: ansible~=2.10.0
           args: "-x 106,208,403"
   yaml_build:
-    needs: ansible_build
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +44,9 @@ jobs:
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   test:
-    needs: yaml_build
+    needs:
+      - yaml_build
+      - ansible_build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
