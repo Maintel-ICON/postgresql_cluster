@@ -1,11 +1,11 @@
 ---
 # yamllint disable rule:truthy
 
-name: scheduled PostgreSQL (CentOS 8)
+name: scheduled PostgreSQL (Ubuntu 20.04)
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '30 0 * * *'
 
 jobs:
   test:
@@ -21,13 +21,13 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip3 install molecule[docker] ansible
+        run: pip3 install molecule[docker] ansible~=2.9.0 pytest pytest-testinfra
 
       - name: Run Molecule tests
         run: molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: centos8
+          MOLECULE_DISTRO: ubuntu2004
 
 ...
